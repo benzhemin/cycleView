@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[SDCycleScrollView scrollToIndex:]:SDCycleScrollView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.flowLayout.itemSize.height">
+            </PersistentString>
+            <PersistentString
+               value = "self.totalItemsCount">
+            </PersistentString>
+            <PersistentString
+               value = "self.mainView.contentOffset.y">
+            </PersistentString>
+            <PersistentString
+               value = "self.currentIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

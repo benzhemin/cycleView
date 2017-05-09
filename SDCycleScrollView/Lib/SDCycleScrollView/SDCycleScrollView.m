@@ -36,6 +36,8 @@
 #import <SDWebImageManager.h>
 #import <UIImageView+WebCache.h>
 
+#import "FPNewsCVCell.h"
+
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
 
 NSString * const ID = @"cycleCell";
@@ -141,7 +143,8 @@ NSString * const ID = @"cycleCell";
     mainView.pagingEnabled = YES;
     mainView.showsHorizontalScrollIndicator = NO;
     mainView.showsVerticalScrollIndicator = NO;
-    [mainView registerClass:[SDCollectionViewCell class] forCellWithReuseIdentifier:ID];
+    //[mainView registerClass:[SDCollectionViewCell class] forCellWithReuseIdentifier:ID];
+    [mainView registerClass:[FPNewsCVCell class] forCellWithReuseIdentifier:ID];
     mainView.dataSource = self;
     mainView.delegate = self;
     mainView.scrollsToTop = NO;
@@ -542,7 +545,20 @@ NSString * const ID = @"cycleCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    //SDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    FPNewsCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    
+    FPNewsItemModel *model1 = [[FPNewsItemModel alloc] init];
+    model1.newsTag = @"买入";
+    model1.newsTitle = @"王先生 购入300斤南极冰虾";
+    
+    FPNewsItemModel *model2 = [[FPNewsItemModel alloc] init];
+    model2.newsTag = @"买入";
+    model2.newsTitle = @"王先生 购入300斤南极冰虾";
+    [cell configItems:@[model1, model2]];
+    
+    return cell;
+    /*
     long itemIndex = [self pageControlIndexWithCurrentCellIndex:indexPath.item];
     
     NSString *imagePath = self.imagePathsGroup[itemIndex];
@@ -578,6 +594,7 @@ NSString * const ID = @"cycleCell";
     }
     
     return cell;
+     */
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
